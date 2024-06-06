@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<Title>Maple for eshow</Title>
+</HEAD>
+<BODY>
+
+<PRE>eshow:=proc(A)
+ local fn,s,n,U,AU,NAU,con;
+ with(plots):with(linalg):
+ with(plottools):
+ #Number of frames
+ fn:=64:
+ #Length of axes
+ s:=1.5*max(A[1,1],A[1,2],A[2,1],A[2,2],1):
+ #Sequence of unit vectors
+ U:=seq(vector([cos((n-1)*2*Pi/fn), sin((n-1)*2*Pi/fn)]),n=1..fn):
+ #Sequence of transformed vectors
+ AU:=seq(multiply(A,U[n]),n=1..fn):
+ #Sequence of norms of transformed vectors
+ NAU:=seq(norm(AU[n],2),n=1..fn):
+ #Function to convert numbers to strings
+ con:=x->convert(evalf(x,3),string):
+ #Display a sequence of frames
+ display(
+  [seq(
+  #Each frame consists of several plots
+  display([
+  #Plot the unit vector
+  arrow([0,0],[U[n][1],U[n][2]],.03*s,.08*s,.1,color=blue),
+  #Plot the transformed vector
+  arrow([0,0],[AU[n][1],AU[n][2]],.03*s,.08*s,.1,color=red),
+  #Plot some axes
+  plot({[[-s,0],[s,0]],[[0,-s],[0,s]]},color=black),
+  #Plot some text describing the vectors
+  textplot([[1.1*s,.8*s,`A = matrix([[`
+    .(A[1,1]).`,`.(A[1,2]).`],[`. (A[2,1]).`,`.(A[2,2]).`]])`],[1.25*s,.4*s,`u = (`.
+    (con(U[n][1])).`,`.(con(U[n][2])).`)`],[1.25*s,0,`|u|=1`],[1.25*s,-.4*s,`Au = (`.
+    (con(AU[n][1])).`,`.(con(AU[n][2])).`)`],[1.25*s,-.8*s,`|Au| =`.(con(NAU[n]))]],
+    align=RIGHT,font=[TIMES,ROMAN,12]),
+  #Plot some color blocks to key the text
+  plot([[1.1*s,.4*s]],color=blue,style=point,symbol=BOX),
+  plot([[1.1*s,-.4*s]],
+    color=red,style=point,symbol=BOX)]),
+  #Finish declaring the sequence
+  n=1..fn)],
+ #Options to apply to all frames
+ insequence=true,view=[-s..3.5*s,-s..s],scaling=constrained,axes=none);
+ end:
+</PRE>

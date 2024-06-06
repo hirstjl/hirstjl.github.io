@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<Title>Maple for involute</Title>
+</HEAD>
+<BODY>
+
+<PRE>with(plots):
+</PRE>
+
+<PRE>animate({[cos(s),sin(s),s=0..2*Pi],
+[cos(t)+s*t*sin(t),sin(t)-s*t*cos(t),s=0..1]},
+t=0..3*Pi,scaling=constrained,frames=64,color=black);
+</PRE>
+
+<PRE>
+animate({[cos(s),sin(s),s=0..2*Pi],
+[cos(t)+s*t*sin(t),sin(t)-s*t*cos(t),s=0..1],
+[cos(s*t)+s*t*sin(s*t),sin(s*t)-s*t*cos(s*t),s=0..1]},
+t=0..3*Pi,scaling=constrained,frames=64,color=black);
+</PRE>
+
+</BODY
+</HTML>

@@ -1,0 +1,39 @@
+<Head>
+<TITLE>Level curves in Maple</TITLE>
+<META NAME="DESCRIPTION" CONTENT="Viewing level curves in Maple">
+<META NAME="KEYWORDS" CONTENT="Hirst, Holly Hirst, Jeff Hirst, Mathematics, Appalachian State, level curves, Maple, Excel, animation">
+</HEAD>
+<BODY >
+<h3>To view level curves in Maple:</h3>
+
+<OL>
+<LI>  Execute a plot command like:
+<tt>plot3d(x^2+y^2,x=-2..2,y=-2..2,color=x^2+y^2,scaling=constrained,style=patchcontour,axes=boxed);</TT>
+</LI>
+<LI>  Click on the plot and rotate 135 degrees right (about z-axis) and
+45 degrees down (about x-axis) to get a top view.
+</LI>
+</OL>
+
+<H3> Comments: </H3>
+<UL>
+<LI>  The coloring, scaling, style and axes may be omitted from the plot
+command and selected from menus that appear when the graphic is selected.
+</LI>
+<LI>
+Exact z values for the level curves can be indicated by using the contour
+option. For example, include <tt>contour = [0,1,2]</tt> in the plot command to
+restrict level curves to z=0, z=1, and z=2.
+</LI>
+<LI>
+Because Mathematica does not allow live manipulation of graphic objects,
+it is not suitable for this demonstration.
+</LI>
+<LI>
+The rotations can be automated via an
+<A HREF="anim.html">animation</A>.
+</LI>
+</UL>
+
+</BODY>
+</HTML>

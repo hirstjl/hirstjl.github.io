@@ -1,0 +1,18 @@
+{VERSION 2 3 "APPLE_PPC_MAC" "2.3" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 }{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "" 0 "" {TEXT -1 72 "First, load the plotting r
+outines.  Click by the prompt and press enter." }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 12 "with(plots):" }}}{EXCHG {PARA 0 "" 0 "" {TEXT 
+-1 66 "This is the code to produce the animation of the string unwindi
+ng." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 134 "animate(\{[cos(s),s
+in(s),s=0..2*Pi],[cos(t)+s*t*sin(t),sin(t)-s*t*cos(t),s=0..1]\},t=0..3
+*Pi,scaling=constrained,frames=64,color=black);" }}}{EXCHG {PARA 0 "" 
+0 "" {TEXT -1 91 "This is the code to produce the animation of the str
+ing unwinding and tracing the involute." }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 187 "animate(\{[cos(s),sin(s),s=0..2*Pi],[cos(t)+s*t*sin(
+t),sin(t)-s*t*cos(t),s=0..1],[cos(s*t)+s*t*sin(s*t),sin(s*t)-s*t*cos(s
+*t),s=0..1]\},t=0..3*Pi,scaling=constrained,frames=64,color=black);" }
+}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "1 0 0" 0 }
+{VIEWOPTS 1 1 0 1 1 1803 }

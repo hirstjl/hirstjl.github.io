@@ -1,0 +1,43 @@
+{VERSION 2 3 "APPLE_PPC_MAC" "2.3" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 }{CSTYLE "" -1 256 "Courier" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 257 "Courier" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 }{PSTYLE "No
+rmal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 }0 0 0 
+-1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {PARA 0 "" 0 "" {TEXT -1 97 "This is the Maple code for eshow.
+  Click next to the prompt and press enter to load the procedure" }}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 1675 "eshow:=proc(A)\nlocal fn,s
+,n,U,AU,NAU,con;\nwith(plots):with(linalg):\nwith(plottools):\n#Number
+ of frames\nfn:=64:\n#Length of axes\ns:=1.5*max(A[1,1],A[1,2],A[2,1],
+A[2,2],1):\n#Sequence of unit vectors\nU:=seq(vector([cos((n-1)*2*Pi/f
+n),\n     sin((n-1)*2*Pi/fn)]),n=1..fn):\n#Sequence of transformed vec
+tors\nAU:=seq(multiply(A,U[n]),n=1..fn):\n#Sequence of norms of transf
+ormed vectors\nNAU:=seq(norm(AU[n],2),n=1..fn):\n#Function to convert \+
+numbers to strings\ncon:=x->convert(evalf(x,3),string):\n#Display a se
+quence of frames\ndisplay(\n\011    [seq(\n\011    #Each frame consist
+s of several plots\n\011    display([\n\011    #Plot the unit vector\n
+\011    arrow([0,0],[U[n][1],U[n][2]],\n        .03*s,.08*s,.1,color=b
+lue),\n\011    #Plot the transformed vector\n\011    arrow([0,0],[AU[n
+][1],AU[n][2]],\n        .03*s,.08*s,.1,color=red),\n\011    #Plot som
+e axes\n\011    plot(\{[[-s,0],[s,0]],[[0,-s],[0,s]]\},color=black),\n
+\011    #Plot some text describing the vectors\n\011    textplot([[1.1
+*s,.8*s,`A = matrix([[`\n\011\011      .(A[1,1]).`,`.(A[1,2]).`],[`.\n
+\011\011      (A[2,1]).`,`.(A[2,2]).`]])`],\n\011\011      [1.25*s,.4*
+s,`u = (`.\n\011\011      (con(U[n][1])).`,`.(con(U[n][2])).`)`],\n
+\011\011      [1.25*s,0,`|u|=1`],\n\011\011      [1.25*s,-.4*s,`Au = (
+`.\n\011\011      (con(AU[n][1])).`,`.(con(AU[n][2])).`)`],\n\011\011 \+
+     [1.25*s,-.8*s,`|Au| =`.(con(NAU[n]))]],\n\011\011      align=RIGH
+T,font=[TIMES,ROMAN,12]),\n\011    #Plot some color blocks to identify
+ the vectors\n\011    plot([[1.1*s,.4*s]],\n\011\011      color=blue,s
+tyle=point,symbol=BOX),\n\011    plot([[1.1*s,-.4*s]],\n\011\011      \+
+color=red,style=point,symbol=BOX)]),\n\011    #Finish declaring the se
+quence\n\011    n=1..fn)],\n#Options to apply to all frames\ninsequenc
+e=true,view=[-s..3.5*s,-s..s],\nscaling=constrained,axes=none);\nend:
+" }}}{PARA 0 "" 0 "" {TEXT -1 58 "To use the procedure, enter a matrix
+.  For example, type  " }{TEXT 256 25 "A:=matrix([[2,0],[1,1]]);" }
+{TEXT -1 28 " and press enter.\nThen type " }{TEXT 257 9 "eshow(A);" }
+{TEXT -1 187 " to generate your animation.  Be patient.  It may take a
+ full minute for the procedure to execute.\nClick on the animation, an
+d use the buttons that appear to start and stop the animation." }}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "1 0 0" 0 }
+{VIEWOPTS 1 1 0 1 1 1803 }

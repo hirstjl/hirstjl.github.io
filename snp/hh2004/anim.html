@@ -1,0 +1,50 @@
+<Head>
+<TITLE>Animating level curves in Maple</TITLE>
+<META NAME="DESCRIPTION" CONTENT="Animating level curves in Maple">
+<META NAME="KEYWORDS" CONTENT="Hirst, Holly Hirst, Jeff Hirst, Mathematics, Appalachian State, level curves, Maple, Excel, animation">
+</HEAD>
+<BODY >
+<h3>To create animations of level curves in Maple 9:</h3>
+
+Use commands of the form:<br><br>
+<tt>with(plots):<br><br>
+animate(plot3d,[x^2-y^2,x=-2..2,y=-2..2,orientation=[45-135*t,45-45*t],
+color=(x^2-y^2)],t=0..1,frames=64,scaling=constrained,style=patchcontour,
+axes=boxed,tickmarks=[5,5,0]);
+</tt>
+
+
+<H3> Comments: </H3>
+<UL>
+<LI>Creating (and especially exporting) animations can create high
+demands for memory.  Reducing the number of frames reduces this
+demand. This will prevent crashes, but results in less smooth motion.
+</LI>
+<LI>
+In earlier versions of Maple, animating the orientation required
+use of the display command.  For example, the following code
+works in Maple 7:
+<br><br>
+<tt>
+with(plots):readlib(piecewise):<br><br>
+A:=seq(plot3d(x^2+y^2,x=-2..2,y=-2..2,color=x^2+y^2,style=patchcontour, axes=boxed,tickmarks=[5,5,0],
+orientation=[45-135*piecewise(t<48,t/48,t>=48,1),45-45*piecewise(t<48,0,t>=48,(t-48)/16)]),t=0..64):<br><br>
+display(A,insequence=true,scaling=constrained);
+</tt>
+<br><br>
+</LI>
+<LI>
+The use of the piecewise function in the orientation option in
+the preceding Maple 7 commands yields the two
+stage rotation (horizontal followed by vertical) displayed in the Quicktime
+movies on the <A HREF="index.html">main page</A>.  The Maple 9 command at
+the top of the page combines both rotations in a single movement.
+</LI>
+<LI>
+The animations can be exported as animated GIFs of converted to
+<A HREF="conv.html">Quicktime</A> movies with nice slider bars.
+</LI>
+</UL>
+
+</BODY>
+</HTML>
